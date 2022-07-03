@@ -315,6 +315,12 @@ textarea {
   padding: 10px;
   margin-bottom: 36px;
 }
+form input:focus,
+textarea:focus {
+  outline: none !important;
+  border: 0.8px solid #ec7160;
+  box-shadow: 0 0 5px #a2b0c0;
+}
 form button {
   background-color: #ec7160;
   border: 0;
