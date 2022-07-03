@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Karla:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&display=swap');
 
 *,
 *::after,
@@ -296,3 +297,64 @@ main {
   left: -2px;
 }
 /* END OF NOTES */
+
+/* Contact */
+form {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 20px;
+  color: #898989;
+}
+form input,
+textarea {
+  border: 0;
+  border-radius: 7px;
+  /* height: 45px; */
+  background-color: #f6f6f6;
+  padding: 10px;
+  margin-bottom: 36px;
+}
+form button {
+  background-color: #ec7160;
+  border: 0;
+  border-radius: 7px;
+  height: 40px;
+  min-width: 123px;
+  color: white;
+  font-size: 13px;
+  cursor: pointer;
+}
+.contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100vw;
+  margin-top: 61px;
+}
+.contact h2 {
+  margin: 0;
+  text-align: left;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  line-height: 17px;
+  margin-bottom: 31px;
+}
+.contact .top {
+  display: flex;
+  gap: 16px;
+}
+.name-input,
+.email-input {
+  display: flex;
+  flex-direction: column;
+}
+.contact .bottom {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  min-height: 300px;
+}
+
+/* End of Contact */
