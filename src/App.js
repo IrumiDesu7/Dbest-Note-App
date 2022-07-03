@@ -3,6 +3,7 @@ import SideNavbar from './components/SideNavbar';
 import Home from './components/Home';
 import Notes from './components/Notes';
 import NotFound from './components/NotFound';
+import Contact from './components/Contact';
 
 export default function App() {
   return (
@@ -11,6 +12,7 @@ export default function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='notes' element={<Notes />} />
+        <Route path='contact' element={<Contact />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
     </>
