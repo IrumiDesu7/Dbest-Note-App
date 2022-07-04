@@ -11,7 +11,9 @@ export default function App() {
       <SideNavbar />
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='notes' element={<Notes />} />
+        <Route path='notes' element={<Notes />}>
+          <Route path=':notesId' element={<Notes />} />
+        </Route>
         <Route path='contact' element={<Contact />} />
         <Route path='*' element={<NotFound />} />
       </Routes>

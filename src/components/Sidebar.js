@@ -1,46 +1,36 @@
+import { Link, Outlet } from 'react-router-dom';
+
 export default function Sidebar(props) {
-  /**
-   * Challenge: Try to figure out a way to display only the
-   * first line of note.body as the note summary in the
-   * sidebar.
-   *
-   * Hint 1: note.body has "invisible" newline characters
-   * in the text every time there's a new line shown. E.g.
-   * the text in Note 1 is:
-   * "# Note summary\n\nBeginning of the note"
-   *
-   * Hint 2: See if you can split the string into an array
-   * using the "\n" newline character as the divider
-   */
-
   const noteElements = props.notes.map((note) => (
-    <div key={note.id}>
-      <div
-        className={`title ${
-          note.id === props.currentNote.id ? 'selected-note' : ''
-        }`}
-        onClick={() => props.setCurrentNoteId(note.id)}
+    <Link
+      to={`${note.body.split('\n')[0]}`}
+      key={note.id}
+      className={`title ${
+        note.id === props.currentNote.id ? 'selected-note' : ''
+      }`}
+      onClick={() => props.setCurrentNoteId(note.id)}
+    >
+      <h4 className='text-snippet'>{note.body.split('\n')[0]}</h4>
+      <p className='description'>{note.body.split('\n')[1]}</p>
+      <p className='description'>{note.date}</p>
+      <button
+        className='delete-btn'
+        onClick={(event) => props.deleteNote(event, note.id)}
       >
-        <h4 className='text-snippet'>{note.body.split('\n')[0]}</h4>
-        <button
-          className='delete-btn'
-          onClick={(event) => props.deleteNote(event, note.id)}
-        >
-          <i className='gg-trash trash-icon'></i>
-        </button>
-      </div>
-    </div>
+        <i className='gg-trash trash-icon'></i>
+      </button>
+    </Link>
   ));
-
   return (
     <section className='pane sidebar'>
       <div className='sidebar--header'>
         <h3>Notes</h3>
         <button className='new-note' onClick={props.newNote}>
-          +
+          Create Note
         </button>
       </div>
       {noteElements}
+      <Outlet />
     </section>
   );
 }

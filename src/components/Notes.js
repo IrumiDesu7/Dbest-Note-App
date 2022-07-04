@@ -4,6 +4,21 @@ import Editor from './Editor';
 import Split from 'react-split';
 import { nanoid } from 'nanoid';
 
+const months = [
+  'Jan',
+  'Feb',
+  'Mar',
+  'Apr',
+  'May',
+  'Jun',
+  'Jul',
+  'Aug',
+  'Sep',
+  'Oct',
+  'Nov',
+  'Dec',
+];
+
 export default function Notes() {
   const [notes, setNotes] = useState(
     () => JSON.parse(localStorage.getItem('notes')) || []
@@ -16,10 +31,19 @@ export default function Notes() {
     localStorage.setItem('notes', JSON.stringify(notes));
   }, [notes]);
 
+  function getDate() {
+    const date = new Date();
+    const month = months[date.getMonth()];
+    const dates = date.getDate();
+    const year = date.getFullYear();
+    return `${month} ${dates}, ${year}`;
+  }
+
   function createNewNote() {
     const newNote = {
       id: nanoid(),
-      body: "# Type your markdown note's title here",
+      body: 'Title here',
+      date: getDate(),
     };
     setNotes((prevNotes) => [newNote, ...prevNotes]);
     setCurrentNoteId(newNote.id);
@@ -57,7 +81,7 @@ export default function Notes() {
   return (
     <main>
       {notes.length > 0 ? (
-        <Split sizes={[30, 70]} direction='horizontal' className='split'>
+        <>
           <Sidebar
             notes={notes}
             currentNote={findCurrentNote()}
@@ -68,7 +92,7 @@ export default function Notes() {
           {currentNoteId && notes.length > 0 && (
             <Editor currentNote={findCurrentNote()} updateNote={updateNote} />
           )}
-        </Split>
+        </>
       ) : (
         <div className='no-notes'>
           <h1>You have no notes</h1>
