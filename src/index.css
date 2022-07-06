@@ -131,7 +131,7 @@ main {
 }
 
 .sidebar {
-  width: 20%;
+  max-width: 322px;
   font-family: 'Inter', sans-serif;
   height: 100vh;
 }
@@ -141,13 +141,25 @@ main {
 }
 
 .sidebar--header {
+  margin-top: 30px;
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
   align-items: center;
 }
-
+.sidebar--header > button {
+  width: 250px;
+  margin-bottom: 30px;
+}
 .sidebar--header > h3 {
-  font-size: 1.75rem;
+  margin: 0;
+  font-size: 13px;
+  align-self: flex-start;
+  margin-top: 10px;
+  margin-bottom: 6px;
+  margin-left: 30px;
+  color: #ec7160;
+  font-weight: 400;
 }
 
 .new-note {
@@ -174,7 +186,20 @@ main {
   height: 100vh;
 }
 
+.sidebar a {
+  position: relative;
+  text-decoration: none;
+  color: black;
+}
+
 .title {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  max-width: 322px;
+  height: 125px;
+  margin: 23px 24px 20px 30px;
+
   /* overflow: hidden;
   width: 100%;
   cursor: pointer;
@@ -183,7 +208,20 @@ main {
   justify-content: space-between;
   align-items: center; */
 }
-
+.selected-note {
+  background-color: #e7e7e9;
+  border-radius: 8px;
+  width: 300px;
+  padding: 0 18px;
+  position: relative;
+  left: -18px;
+  /* right: 12px; */
+  /* background-color: #f6f6f6;
+  border-radius: 8px;
+  margin: 12px;
+  padding: 11px 16px;
+  max-width: 298px; */
+}
 .title--delete {
   display: none;
   cursor: pointer;
@@ -200,33 +238,27 @@ main {
 }
 
 .text-snippet {
-  /* margin: 0;
-  padding-inline: 5px;
+  margin: 0;
   font-size: 16px;
   font-weight: 400;
   line-height: 1.2rem;
   color: #4a4e74;
   white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis; */
-}
-.text-description {
   text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
 }
-
-.selected-note {
-  /* background-color: #f6f6f6;
-  border-radius: 8px;
-  margin: 12px;
-  padding: 11px 16px;
-  max-width: 298px; */
+.description,
+.date {
+  font-size: 13px;
+  color: #898989;
+  line-height: 20px;
+  text-overflow: ellipsis;
+  /* white-space: nowrap; */
+  overflow: hidden;
 }
 
 .selected-note .text-snippet {
   color: black;
-  font-weight: 700;
 }
 
 .gutter {
@@ -265,9 +297,12 @@ main {
   margin-right: 10px;
 }
 
-/* .title:hover > .delete-btn {
+.title:hover > .delete-btn {
   display: block;
-} */
+  position: absolute;
+  bottom: 10px;
+  right: 0;
+}
 
 .trash-icon {
   cursor: pointer;
@@ -313,6 +348,12 @@ main {
   border-top-right-radius: 2px;
   top: -7px;
   left: -2px;
+}
+
+hr {
+  border: 1px solid #e7e7e9;
+  width: 500px;
+  margin: 0;
 }
 /* END OF NOTES */
 
