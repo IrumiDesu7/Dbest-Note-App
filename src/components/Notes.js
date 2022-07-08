@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import Sidebar from './Sidebar';
 import Editor from './Editor';
-import Split from 'react-split';
 import { nanoid } from 'nanoid';
 
 const months = [
