@@ -132,6 +132,7 @@ main {
   position: relative;
 }
 .sidebar {
+  max-width: 322px;
   position: relative;
   font-family: 'Inter', sans-serif;
   height: 100vh;
@@ -210,8 +211,11 @@ main {
 }
 
 .editor {
+  position: relative;
   width: 80%;
   height: 100vh;
+  background-color: white;
+  z-index: 0;
 }
 .mde-tabs button {
   background-color: rgba(236, 113, 96, 0.5) !important;
