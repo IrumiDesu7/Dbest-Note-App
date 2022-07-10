@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import leftArrow from './left.svg';
 
@@ -31,9 +31,7 @@ export default function Sidebar(props) {
       </div>
     </Link>
   ));
-  useEffect(() => {
-    console.log('useEffect in action');
-  });
+
   return (
     <section className={`pane sidebar ${isOpen}`}>
       <div className='sidebar--header'>
