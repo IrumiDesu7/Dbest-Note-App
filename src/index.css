@@ -189,7 +189,7 @@ main {
 }
 
 .new-note {
-  z-index: -1;
+  /* z-index: -1; */
   width: 200px;
   margin-bottom: 30px;
   cursor: pointer;
